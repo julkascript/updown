@@ -1,24 +1,31 @@
 <template>
   <nav class="top-nav">
-    <div class="logo title">
-      <h1 class="text-2xl">Updown</h1>
+    <div class="logo title cursor-pointer">
+      <h1 class="text-2xl">
+        <router-link to="/">Updown</router-link>
+      </h1>
     </div>
-    <div class="nav-links">
-      <router-link to="/about" id="about">About</router-link>
+    <div class="flex gap-2 mr-auto ml-32">
+      <div class="nav-links">
+        <router-link to="/translations" id="about">Translations</router-link>
+      </div>
+      <div class="nav-links">
+        <router-link to="/about" id="about">About</router-link>
+      </div>
     </div>
     <div class="search">
       <input type="text" placeholder="Search" />
       <button>Search</button>
     </div>
-    <div class="sign-up">
+    <!-- <div class="sign-up">
       <button>Sign Up</button>
-    </div>
+    </div> -->
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'TopBar',
+  name: "TopBar",
 };
 </script>
 
