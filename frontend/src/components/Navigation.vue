@@ -7,7 +7,7 @@
     </div>
     <div class="flex gap-2 mr-auto ml-32">
       <div class="nav-links">
-        <router-link to="/translations" id="about">Translations</router-link>
+        <router-link to="/songs" id="about">Songs</router-link>
       </div>
       <div class="nav-links">
         <router-link to="/about" id="about">About</router-link>

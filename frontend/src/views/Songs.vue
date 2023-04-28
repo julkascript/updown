@@ -1,22 +1,28 @@
 <template>
   <div class="container p-4">
-    <h1 class="text-2xl font-bold">Translations</h1>
+    <h1 class="text-2xl font-bold">Songs</h1>
     <v-table class="mt-10">
       <tbody>
         <tr
-          @mouseenter="hover(translation)"
-          @mouseleave="hover(translation)"
-          v-for="translation in translations"
+          @click="goToSong(song.id)"
+          @mouseenter="hover(song)"
+          @mouseleave="hover(song)"
+          v-for="song in songs"
           :class="{
             'p-4 cursor-pointer': true,
-            'bg-slate-200': translation.isHovered,
+            'bg-slate-200': song.isHovered,
           }"
         >
           <td class="py-4">
-            <v-img width="7rem" :src="translation.image"></v-img>
+            <v-img
+              width="7rem"
+              aspect-ratio="1/1"
+              cover
+              :src="song.image"
+            ></v-img>
           </td>
-          <td class="text-2xl">{{ translation.artist }}</td>
-          <td class="text-2xl">{{ translation.title }}</td>
+          <td class="text-2xl">{{ song.artist }}</td>
+          <td class="text-2xl">{{ song.title }}</td>
         </tr>
       </tbody>
     </v-table>
@@ -27,14 +33,16 @@
 export default {
   data() {
     return {
-      translations: [
+      songs: [
         {
+          id: 1,
           image: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
           artist: "Roddy Rich",
           title: "The box",
           isHovered: false,
         },
         {
+          id: 2,
           image: "https://picsum.photos/200",
           artist: "Michael Jackson",
           title: "Billie Jean",
@@ -44,8 +52,11 @@ export default {
     };
   },
   methods: {
-    hover(translation) {
-      translation.isHovered = !translation.isHovered;
+    hover(song) {
+      song.isHovered = !song.isHovered;
+    },
+    goToSong(id) {
+      this.$router.push(`/songs/${id}`);
     },
   },
 };
