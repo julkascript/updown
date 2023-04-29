@@ -88,7 +88,6 @@ export default {
           translatedLyrics,
           ...songDataRest,
         };
-        console.log(this.songData);
       })
       .catch((err) => console.log(err));
   },

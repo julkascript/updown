@@ -1,3 +1,7 @@
 <template>
-  <div>Artists!</div>
+  <CustomTable></CustomTable>
 </template>
+
+<script>
+import CustomTable from "@/components/CustomTable.vue";
+</script>
