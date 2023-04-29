@@ -13,7 +13,7 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = ("artist", "title", "lyrics", "id")
+        fields = ("artist", "title", "lyrics", "id", "picture_url")
 
     def to_representation(self, instance):
         return super().to_representation(instance)
