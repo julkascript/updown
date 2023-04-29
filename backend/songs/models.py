@@ -19,6 +19,7 @@ class Song(models.Model):
 class Artist(models.Model):
     name = models.CharField(max_length=100, blank=False, unique=True)
     translated_name = models.CharField(max_length=100, blank=True, null=True)
+    picture_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.name

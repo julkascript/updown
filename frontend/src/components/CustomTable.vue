@@ -20,8 +20,8 @@
             :src="item.image"
           ></v-img>
         </td>
-        <td class="text-2xl">{{ item.artist }}</td>
-        <td class="text-2xl">{{ item.title }}</td>
+        <td class="text-2xl">{{ item.name }}</td>
+        <!-- <td class="text-2xl">{{ item.title }}</td> -->
       </tr>
     </tbody>
   </v-table>
