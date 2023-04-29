@@ -57,8 +57,9 @@ export default {
     };
   },
   beforeCreate() {
+    const id = this.$route.params.id;
     axios
-      .get(`/song/1/`)
+      .get(`/song/${id}/`)
       .then(({ data }) => {
         const {
           artist: [{ name: artist } = { name: "" }],

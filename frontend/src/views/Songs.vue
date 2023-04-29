@@ -31,38 +31,38 @@
 </template>
 
 <script>
+import axios from "@/axios";
+
 export default {
   data() {
     return {
-      songs: [
-        {
-          id: 1,
-          image:
-            "https://i1.sndcdn.com/artworks-iN2l5Lrdfbsxy6Y0-Ia8C7A-t240x240.jpg",
-          artist: "Roddy Ricch",
-          title: "The Box",
-          isHovered: false,
-        },
-        {
-          id: 2,
-          image:
-            "https://steamuserimages-a.akamaihd.net/ugc/1830164146013510148/26556CEF64B34A3A46A560C7F26D0D92FDE430F9/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
-          artist: "Michael Jackson",
-          title: "Billie Jean",
-          isHovered: false,
-        },
-        {
-          id: 3,
-          image:
-            "https://i1.sndcdn.com/artworks-9wo2yVLSUwH72KIh-NdBfzQ-t500x500.jpg",
-          artist: "Drake",
-          title: "More M's",
-          isHovered: false,
-        },
-      ],
+      songs: [],
     };
   },
+  beforeCreate() {
+    axios
+      .get(`/song/`)
+      .then(({ data }) => {
+        const formatedData = data.map((song) => {
+          const artist = this.getArtistNames(song.artist);
+          const { picture_url: image, artist: artistObj, ...rest } = song;
+          return {
+            artist,
+            image,
+            isHovered: false,
+            ...rest,
+          };
+        });
+        this.songs = formatedData;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
   methods: {
+    getArtistNames(artists) {
+      return artists.map((artist) => artist.name).join(", ");
+    },
     hover(song) {
       song.isHovered = !song.isHovered;
     },
