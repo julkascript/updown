@@ -8,7 +8,7 @@
             {{ songData.title }}
           </h1>
           <h1 class="text-sky-900">/</h1>
-          <h1 class="text-sky-900">Богато стягане</h1>
+          <h1 class="text-sky-900">{{ songData.translatedTitle }}</h1>
         </div>
         <div class="flex flex-row text-xl gap-2 mt-2">
           <h3 class="">{{ songData.artist }}</h3>
@@ -27,7 +27,10 @@
       </div>
       <div class="ml-20">
         <h3 class="text-2xl font-bold mb-4">Translated lyrics / Превод</h3>
-        <div v-for="lyric in Object.entries(songData.lyrics)" class="mb-24">
+        <div
+          v-for="lyric in Object.entries(songData.translatedLyrics)"
+          class="mb-24"
+        >
           <h5>[ {{ lyric[0] }} ]</h5>
           <p>{{ lyric[1] }}</p>
         </div>
@@ -48,6 +51,8 @@ export default {
         artist: "",
         title: "",
         lyrics: ``,
+        translatedTitle: "",
+        translatedLyrics: ``,
       },
     };
   },
@@ -57,11 +62,19 @@ export default {
       .then(({ data }) => {
         const {
           artist: [{ name: artist } = { name: "" }],
+          translated_title: translatedTitle,
+          translated_lyrics: translatedLyrics,
           picture_url: image,
           ...songDataRest
         } = data;
-        this.songData = { artist, image, ...songDataRest };
-        console.log(this.songData.image);
+        this.songData = {
+          artist,
+          image,
+          translatedTitle,
+          translatedLyrics,
+          ...songDataRest,
+        };
+        console.log(this.songData);
       })
       .catch((err) => console.log(err));
   },
