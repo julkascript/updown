@@ -32,8 +32,16 @@
 
 <script>
 import axios from "@/axios";
+import { useStore } from "@/store";
 
 export default {
+  setup() {
+    const store = useStore();
+
+    return {
+      getArtistNames: store.getArtistNames,
+    };
+  },
   data() {
     return {
       songs: [],
@@ -60,9 +68,6 @@ export default {
       });
   },
   methods: {
-    getArtistNames(artists) {
-      return artists.map((artist) => artist.name).join(", ");
-    },
     hover(song) {
       song.isHovered = !song.isHovered;
     },

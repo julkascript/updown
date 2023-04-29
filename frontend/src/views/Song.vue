@@ -13,7 +13,7 @@
         <div class="flex flex-row text-xl gap-2 mt-2">
           <h3 class="">{{ songData.artist }}</h3>
           <h3>/</h3>
-          <h3>Дракон</h3>
+          <h3>{{ songData.artistTranslated }}</h3>
         </div>
       </div>
     </div>
@@ -41,8 +41,17 @@
 
 <script>
 import axios from "@/axios";
+import { useStore } from "@/store";
 
 export default {
+  setup() {
+    const store = useStore();
+
+    return {
+      getArtistNames: store.getArtistNames,
+      getTranslatedArtistNames: store.getTranslatedArtistNames,
+    };
+  },
   data() {
     return {
       songData: {
@@ -61,8 +70,11 @@ export default {
     axios
       .get(`/song/${id}/`)
       .then(({ data }) => {
+        const artist = this.getArtistNames(data.artist);
+        const artistTranslated = this.getTranslatedArtistNames(data.artist);
         const {
-          artist: [{ name: artist } = { name: "" }],
+          artist: artistObj,
+          artistTranslated: artistTranslatedObj,
           translated_title: translatedTitle,
           translated_lyrics: translatedLyrics,
           picture_url: image,
@@ -70,6 +82,7 @@ export default {
         } = data;
         this.songData = {
           artist,
+          artistTranslated,
           image,
           translatedTitle,
           translatedLyrics,
