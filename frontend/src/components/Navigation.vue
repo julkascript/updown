@@ -10,6 +10,9 @@
         <router-link to="/songs" id="about">Songs</router-link>
       </div>
       <div class="nav-links">
+        <router-link to="/artists" id="about">Artists</router-link>
+      </div>
+      <div class="nav-links">
         <router-link to="/about" id="about">About</router-link>
       </div>
     </div>

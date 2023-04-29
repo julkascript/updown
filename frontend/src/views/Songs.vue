@@ -15,7 +15,7 @@
         >
           <td class="py-4">
             <v-img
-              width="7rem"
+              width="5rem"
               aspect-ratio="1/1"
               cover
               class="rounded-lg"

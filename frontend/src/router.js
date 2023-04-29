@@ -21,6 +21,11 @@ const routes = [
     name: "Song",
     component: () => import("./views/Song.vue"),
   },
+  {
+    path: "/artists/",
+    name: "Artists",
+    component: () => import("./views/Artists.vue"),
+  },
 ];
 
 const router = createRouter({
