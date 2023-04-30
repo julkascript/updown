@@ -14,10 +14,11 @@
             'border-b-2 border-zinc-200': true,
           }"
         >
-          <td class="picture p-4 m-0 align-top w-1/12">
+          <td class="p-4 m-0 align-top">
             <v-img
-              aspect-ratio="1/1"
               cover
+              max-height="100"
+              max-width="100"
               class="rounded-lg shadow-md"
               :src="item.image"
             ></v-img>
