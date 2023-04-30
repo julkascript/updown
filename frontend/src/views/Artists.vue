@@ -1,6 +1,6 @@
 <template>
   <CustomTable
-    title="Artists"
+    pageTitle="Artists"
     :items="artists"
     :goTo="goToArtist"
   ></CustomTable>

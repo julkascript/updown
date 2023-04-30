@@ -1,5 +1,5 @@
 <template>
-  <CustomTable title="Songs" :items="songs" :goTo="goToSong"></CustomTable>
+  <CustomTable pageTitle="Songs" :items="songs" :goTo="goToSong"></CustomTable>
 </template>
 
 <script>
