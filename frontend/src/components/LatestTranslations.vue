@@ -1,10 +1,8 @@
 <template>
-  <div class="container flex flex-row gap-6 justify-center mt-12">
-    <div
-      v-for="t in translations"
-      class="container bg-zinc-200 w-1/6 h-64"
-    ></div>
-  </div>
+  <div
+    v-for="_ in translations"
+    class="container w-100 h-64 shadow-lg rounded-lg bg-slate-100"
+  ></div>
 </template>
 
 <script>

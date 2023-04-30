@@ -1,8 +1,12 @@
 <!-- views/Home.vue -->
 <template>
-  <div class="p-1 flex flex-col items-center justify-center mt-6">
-    <h1 class="text-2xl font-bold">Check out the latest translations</h1>
-    <LatestTranslations />
+  <div class="container p-8">
+    <div class="p-1 flex flex-col mt-6">
+      <h1 class="text-2xl font-bold">Check out the latest translations</h1>
+      <div class="grid grid-cols-4 gap-4 mt-12">
+        <LatestTranslations />
+      </div>
+    </div>
   </div>
 </template>
 

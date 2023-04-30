@@ -1,11 +1,13 @@
 <template>
-  <nav class="top-nav">
+  <nav
+    class="flex align-center justify-between top-nav px-8 py-4 border-b-2 border-zinc-gray-950 sticky top-0 bg-white z-50"
+  >
     <div class="logo title cursor-pointer">
-      <h1 class="text-2xl">
+      <h1 class="text-2xl font-bold text-sky-900">
         <router-link to="/">Updown</router-link>
       </h1>
     </div>
-    <div class="flex gap-2 mr-auto ml-32">
+    <div class="flex gap-2 mr-auto ml-32 text-sky-900">
       <div
         v-for="tab in tabs"
         :class="{
@@ -50,52 +52,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#about {
-  color: black;
-  text-decoration: none;
-}
-button {
-  cursor: pointer;
-}
-.title {
-  display: flex;
-  align-items: center;
-}
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: whitesmoke;
-  color: black;
-}
-
-.logo img {
-  height: 2.5rem;
-}
-
-.search input {
-  border: none;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  border-radius: 0.25rem;
-}
-
-.search button {
-  border: none;
-  background-color: #fff;
-  color: #333;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-}
-
-.sign-up button {
-  border: none;
-  background-color: #fff;
-  color: #333;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-}
-</style>
