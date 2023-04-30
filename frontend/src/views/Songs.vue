@@ -1,40 +1,17 @@
 <template>
-  <div class="container p-8">
-    <h1 class="text-2xl font-bold">Songs</h1>
-    <v-table class="mt-10">
-      <tbody>
-        <tr
-          @click="goToSong(song.id)"
-          @mouseenter="hover(song)"
-          @mouseleave="hover(song)"
-          v-for="song in songs"
-          :class="{
-            'p-4 cursor-pointer': true,
-            'bg-slate-200': song.isHovered,
-          }"
-        >
-          <td class="py-4">
-            <v-img
-              width="5rem"
-              aspect-ratio="1/1"
-              cover
-              class="rounded-lg"
-              :src="song.image"
-            ></v-img>
-          </td>
-          <td class="text-2xl">{{ song.artist }}</td>
-          <td class="text-2xl">{{ song.title }}</td>
-        </tr>
-      </tbody>
-    </v-table>
-  </div>
+  <CustomTable title="Songs" :items="songs" :goTo="goToSong"></CustomTable>
 </template>
 
 <script>
 import axios from "@/axios";
 import { useStore } from "@/store";
+import CustomTable from "@/components/CustomTable.vue";
 
 export default {
+  name: "Songs",
+  components: {
+    CustomTable,
+  },
   setup() {
     const store = useStore();
 
@@ -52,10 +29,10 @@ export default {
       .get(`/song/`)
       .then(({ data }) => {
         const formatedData = data.map((song) => {
-          const artist = this.getArtistNames(song.artist);
-          const { picture_url: image, artist: artistObj, ...rest } = song;
+          const name = this.getArtistNames(song.artist);
+          const { picture_url: image, name: artistObj, ...rest } = song;
           return {
-            artist,
+            name,
             image,
             isHovered: false,
             ...rest,

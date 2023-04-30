@@ -1,5 +1,9 @@
 <template>
-  <CustomTable :items="artists" :goTo="() => console.log()"></CustomTable>
+  <CustomTable
+    title="Artists"
+    :items="artists"
+    :goTo="goToArtist"
+  ></CustomTable>
 </template>
 
 <script>
@@ -34,6 +38,11 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+  },
+  methods: {
+    goToArtist(id) {
+      this.$router.push(`/artists/${id}`);
+    },
   },
 };
 </script>
