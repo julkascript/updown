@@ -16,13 +16,6 @@
         <router-link :to="tab.path">{{ tab.name }}</router-link>
       </div>
     </div>
-    <div class="search">
-      <input type="text" placeholder="Search" />
-      <button>Search</button>
-    </div>
-    <!-- <div class="sign-up">
-      <button>Sign Up</button>
-    </div> -->
   </nav>
 </template>
 
