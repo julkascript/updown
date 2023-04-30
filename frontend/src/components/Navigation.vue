@@ -6,14 +6,14 @@
       </h1>
     </div>
     <div class="flex gap-2 mr-auto ml-32">
-      <div class="nav-links">
-        <router-link to="/songs" id="about">Songs</router-link>
-      </div>
-      <div class="nav-links">
-        <router-link to="/artists" id="about">Artists</router-link>
-      </div>
-      <div class="nav-links">
-        <router-link to="/about" id="about">About</router-link>
+      <div
+        v-for="tab in tabs"
+        :class="{
+          'mr-4': true,
+          'font-bold': tab.name?.toLowerCase() === getActiveTab,
+        }"
+      >
+        <router-link :to="tab.path">{{ tab.name }}</router-link>
       </div>
     </div>
     <div class="search">
@@ -29,6 +29,32 @@
 <script>
 export default {
   name: "TopBar",
+  computed: {
+    getActiveTab() {
+      return this.$route?.name?.toLowerCase();
+    },
+  },
+  data() {
+    return {
+      tabs: [
+        {
+          name: "Songs",
+          path: "/songs",
+          isActive: false,
+        },
+        {
+          name: "Artists",
+          path: "/artists",
+          isActive: false,
+        },
+        {
+          name: "About",
+          path: "/about",
+          isActive: false,
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -55,16 +81,6 @@ button {
 
 .logo img {
   height: 2.5rem;
-}
-
-.nav-links {
-  display: flex;
-  color: black;
-}
-
-.nav-links a {
-  margin-right: 1rem;
-  color: #fff;
 }
 
 .search input {

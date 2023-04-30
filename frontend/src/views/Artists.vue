@@ -24,7 +24,6 @@ export default {
     axios
       .get(`/artist/`)
       .then(({ data }) => {
-        console.log(data);
         const formatedData = data.map((artist) => {
           const { picture_url: image, ...rest } = artist;
           return {
