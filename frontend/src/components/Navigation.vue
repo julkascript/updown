@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex align-center justify-between top-nav px-8 py-4 border-b-2 border-zinc-gray-950 sticky top-0 bg-white z-50"
+    class="flex align-center justify-between top-nav px-32 py-4 border-b-2 border-zinc-gray-950 sticky top-0 bg-white z-50"
   >
     <div class="logo title cursor-pointer">
       <h1 class="text-2xl font-bold text-sky-900">
@@ -40,11 +40,6 @@ export default {
         {
           name: "Artists",
           path: "/artists",
-          isActive: false,
-        },
-        {
-          name: "About",
-          path: "/about",
           isActive: false,
         },
       ],
