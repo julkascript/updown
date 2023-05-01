@@ -7,6 +7,7 @@
         <h1 class="line font-bold text-8xl text-blue-700">the ocean of</h1>
         <h1 class="line font-bold text-8xl text-blue-900">lyrics.</h1>
         <button
+          @click="goToSongs"
           class="get-started-btn font-semibold flex justify-center w-1/3 bg-gradient-to-r from-blue-400 to-blue-900 hover:from-sky-500 hover:to-sky-900 text-white mt-10 shadow-md text-l p-3"
         >
           Commence forth
@@ -32,6 +33,11 @@
 <script>
 export default {
   components: {},
+  methods: {
+    goToSongs() {
+      this.$router.push("/songs");
+    },
+  },
 };
 </script>
 

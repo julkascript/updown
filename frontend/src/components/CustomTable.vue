@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-8">
+  <div class="container px-32 py-12">
     <h1 class="text-2xl font-bold">{{ pageTitle }}</h1>
     <table class="mt-10 w-full">
       <tbody>

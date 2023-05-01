@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8 flex flex-column gap-12">
+  <div class="px-32 py-12 flex flex-column gap-12">
     <div class="flex gap-8">
       <img :src="songData.image" class="rounded-lg photo" />
       <div>
