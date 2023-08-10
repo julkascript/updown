@@ -20,10 +20,10 @@
     <div class="flex flex columns-2 gap-64">
       <div>
         <h3 class="text-2xl font-bold mb-4">Original lyrics / Оригинал</h3>
-        <!-- <div v-for="lyric in Object.entries(songData.lyrics)" class="mb-24">
-          <h5>[ {{ lyric[0] }} ]</h5>
-          <p>{{ lyric[1] }}</p>
-        </div> -->
+        <div v-for="paragraph in songData.paragraphs" class="mb-24">
+          <h5>[ {{ paragraph.name }} ]</h5>
+          <p v-for="line in paragraph.lines">{{ line.content }}</p>
+        </div>
       </div>
       <div class="ml-20">
         <h3 class="text-2xl font-bold mb-4">Translated lyrics / Превод</h3>
